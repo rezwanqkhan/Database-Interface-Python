@@ -14,9 +14,9 @@ app.config['STATIC_FOLDER'] = 'static'
 class stc:
     i = 0
 
-
-DB_USERNAME = "root"
-DB_PASSWORD = "Nawzer@2001"
+# add your localhost username and password
+DB_USERNAME = "your_username"
+DB_PASSWORD = "your_password"
 
 
 # MySQL bağlantısı oluştur
