@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Öğrenci Veri Tabanı Yönetimi</title>
+    <link rel="stylesheet" type=" text/css" href="{{ url_for('static', filename='css/util.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+    <style>
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            background-color: #f5f5dc; /* Tatlı krem rengi */-->
+<!--            color: #333;-->
+<!--            line-height: 1.6;-->
+<!--        }-->
+
+      body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #5A57CD, #C350C0); /* Gradient from left to right */
+    color: #333;
+    line-height: 1.6;
+}
+
+
+        .form-container {
+            width: 50%;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        select, input {
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            background-color: #4CAF50; /* Yeşil buton */
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Veri Tabanı Yönetimi</h2>
+        <form method="post" action="/select_operation">
+            <label>Yapılacak İşlem Seçin:</label>
+            <select name="operation">
+                <option value="ogrenci_ekle">Öğrenci İşlemleri</option>
+                <option value="kurs_ekle">Kurs İşlemleri</option>
+                <option value="akademisyen_ekle">Akademisyen İşlemleri</option>
+                <option value="enstitu_ekle">Enstitü İşlemleri</option>
+                <option value="program_ekle">Program İşlemleri</option>
+                <option value="tez_ekle">Tez İşlemleri</option>
+                <option value="seminar_ekle">Seminer İşlemleri</option>
+            </select>
+
+            <button type="submit">Devam Et</button>
+        </form>
+    </div>
+</body>
+</html>

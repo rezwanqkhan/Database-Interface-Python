@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Veritabanı Yönetimi</title>
+    <style>
+             body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #5A57CD, #C350C0); /* Gradient from left to right */
+    color: #333;
+    line-height: 1.6;
+}
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: inline-block;
+            width: 150px;
+            text-align: right;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        input, textarea, button {
+            padding: 10px;
+            margin-left: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+
+        button {
+            background-color: #4CAF50; /* Yeşil buton */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+  .query-results {
+    text-align: center;
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.styled-table {
+    width: 98%;
+    border-collapse: collapse;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 0 auto;
+    background-color: #ffffff;
+    color: #45A049;
+}
+
+.styled-table th, .styled-table td {
+    padding: 10px;
+    border: 1px solid #dddddd;
+}
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .form-section {
+            flex-basis: 45%;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+
+.alert {
+    padding: 20px;
+    background-color: #f44336; /* Kırmızı */
+    color: white;
+    opacity: 1;
+    transition: opacity 0.6s; /* 0.6 saniyede kaybolma efekti */
+    margin-bottom: 15px;
+    position: fixed; /* Pop-up olarak görünmesi için */
+    top: 20px; /* Üstten boşluk */
+    right: 20px; /* Sağdan boşluk */
+    z-index: 1000; /* Diğer öğelerin üzerinde görünmesi için */
+}
+
+.alert.success {background-color: #4CAF50;} /* Yeşil renk için */
+
+    </style>
+
+<script>
+    // Doküman yüklendikten sonra çalışır
+    document.addEventListener("DOMContentLoaded", function() {
+        // Tüm uyarıları seç
+        const alerts = document.querySelectorAll('.alert');
+
+        // Her bir uyarı için bir zamanlayıcı ayarla
+        alerts.forEach(function(alert) {
+            setTimeout(function() {
+                alert.style.display = 'none'; // Uyarıyı gizle
+            }, 3000); // 3000 milisaniye sonra (3 saniye)
+        });
+    });
+</script>
+</head>
+<body>
+    <h1>Veritabanı Yönetimi</h1>
+
+<div class="form-container">
+        <div class="form-section">
+            <h2>Seminer Ekle</h2>
+<form method="post" action="/add_seminar">
+    <div class="form-group"><label>Seminar ID:</label> <input type="number" name="seminar_id"></div>
+    <div class="form-group"><label>Seminar Name:</label> <input type="text" name="seminar_name"></div>
+    <div class="form-group"><label>Duration:</label> <input type="number" name="duration"></div>
+    <div class="form-group"><label>Seminar Leader ID:</label> <input type="number" name="seminar_leader_id"></div>
+    <button type="submit">Seminer Ekle</button>
+</form>
+</div>
+
+<div class="form-section">
+    <h2>Seminer Sil</h2>
+    <form method="post" action="/delete_seminar">
+        <div class="form-group"><label>Seminar ID:</label> <input type="number" name="seminar_id"></div>
+        <button type="submit">Seminer Sil</button>
+    </form>
+
+    <h2>Sorguyu Çalıştır</h2>
+    <form method="post" action="/execute_query">
+        <textarea name="query" rows="4" cols="50"></textarea><br>
+        <button type="submit">Sorguyu Çalıştır</button>
+    </form>
+  </div>
+</div>
+
+
+{% if query_results %}
+    <div class="query-results">
+        <table class="styled-table">
+            <tr>
+                {% for column in column_names %}
+                    <th>{{ column }}</th>
+                {% endfor %}
+            </tr>
+            {% for row in query_results %}
+                <tr>
+                    {% for cell in row %}
+                        <td>{{ cell }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endif %}
+
+
+{% with messages = get_flashed_messages(category_filter=["success", "error"]) %}
+      {% if messages %}
+        <div class="flash-messages">
+          {% for message in messages %}
+            <div class="alert {{ 'success' if 'success' in message else 'error' }}">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+</body>
+</html>
