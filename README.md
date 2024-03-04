@@ -47,7 +47,7 @@ This is the final project for the Database Management Systems lesson in the acad
 
 ---
 
-## After Deleted Student
+## After Deleting the Student
 
 <p align="center">
   <br>
@@ -56,7 +56,7 @@ This is the final project for the Database Management Systems lesson in the acad
 </p>
 
 ---
-## query After Deleting Student
+## Query After Deleting Student
 
 <p align="center">
   <br>
@@ -66,7 +66,7 @@ This is the final project for the Database Management Systems lesson in the acad
 
 ---
 
-## query After Deleting Student
+## Query after Deleting Student
 
 <p align="center">
   <br>
@@ -86,7 +86,7 @@ This is the final project for the Database Management Systems lesson in the acad
 
 ---
 
-## Queiry after Adding program
+## Query after Adding program
 
 <p align="center">
   <br>
@@ -96,7 +96,7 @@ This is the final project for the Database Management Systems lesson in the acad
 
 --
 
-## Queiry after Adding program
+## Query after Adding program
 
 <p align="center">
   <br>
@@ -116,7 +116,7 @@ This is the final project for the Database Management Systems lesson in the acad
 
 --
 
-## Queiry after deleting the program
+## Query after deleting the program
 
 <p align="center">
   <br>
