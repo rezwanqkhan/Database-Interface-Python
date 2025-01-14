@@ -3,7 +3,7 @@
 This is the final project for the Database Management Systems lesson in the academic year 2023-2024. The database project interface was developed using the Flask library of Python. It was created through teamwork with my classmates, each one being:
 
 - Veysel ÖZDEMİR ([GitHub](https://github.com/veysel-ozdemir))
-- Ali KÖSEMEN ([GitHub](https://github.com/Ali))
+- Ali KÖSEMEN ([GitHub](https://github.com/ali-kosemen))
 - Burak BÜLBÜL ([GitHub](https://github.com/Burak101101))
 - Çağrı ÖZAY ([GitHub](https://github.com/Coex38))
 
